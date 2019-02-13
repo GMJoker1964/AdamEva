@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam va Eva</title>
+</head>
+<body>
+<script>
+    var Apple = function (weight) {
+        this.weight = weight;
+        this.getWeight = function () {
+            return this.weight;
+        }
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        }
+        this.decrease = function () {
+            if (this.weight > 0)
+                this.weight--;
+        }
+
+        this.isEmpty = function () {
+            if (this.weight == 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    }
+    var Human = function (name, weight, gender) {
+        this.name = name;
+        this.gender = gender;
+        this.weight = weight;
+        /*this.isMale = function () {
+            if (this.gender == "Male") {
+                return true;
+            } else {
+                return false;
+            }
+        }*/
+        this.setGender = function (gender) {
+            this.gender = gender;
+        }
+        this.checkApple = function (apple) {
+            apple.isEmpty();
+        }
+        this.eat = function (apple) {
+            apple.decrease();
+            this.weight++;
+        }
+        this.say = function (str) {
+            return str;
+        }
+        this.getName = function () {
+            return this.name;
+        }
+        this.setName = function (name) {
+            this.name = name;
+        }
+        this.getWeight = function () {
+            return this.weight;
+        }
+        this.setWeight = function (weight) {
+            this.weight = weight;
+        }
+    }
+
+    var apple = new Apple(10);
+
+    var appleWeight = apple.getWeight();
+    //document.write(appleWeight);
+    var adam = new Human("Adam", 52, "Male");
+    var manName = adam.getName();
+    var manWeight = adam.getWeight();
+    var manGender = adam.setGender();
+
+
+    var eva = new Human("Eva", 45, "Female");
+    var womanGender = eva.setGender();
+    var womanName = eva.getName();
+    var womanWeight = eva.getWeight();
+    var count = appleWeight - 1;
+
+    while (true) {
+        if (apple.isEmpty()) {
+            document.write("The end;");
+            break;
+        } else {
+            adam.eat(apple);
+            document.write(manName + ": Lam mieng nua di" + "<br/>");
+            eva.eat(apple);
+            document.write(womanName + ": Anh cung lam mieng nua di" + "<br/>");
+            // if (adam.eat()) {
+            //     document.write(manName + ": Lam mieng nua di" + "<br/>");
+            //     count--;
+            //     console.log(count);
+            // } else if (eva.eat()) {
+            //     document.write(womanName + ": Anh cung lam mieng nua di" + "<br/>");
+            //     count--;
+            //     console.log(count);
+            // }
+        }
+    }
+
+
+</script>
+</body>
+</html>
